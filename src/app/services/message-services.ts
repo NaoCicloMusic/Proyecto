@@ -13,7 +13,6 @@ export class MessageServices {
     return this.http.get<Message[]>(this.apiUrl);
   }
 
-  // Agrega esta función para guardar
   guardarMensaje(mensaje: Message) {
     return this.http.post<Message>(this.apiUrl, mensaje);
   }

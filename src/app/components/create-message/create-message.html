@@ -16,8 +16,9 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label">URL de la Imagen</label>
-          <input type="text" name="imageUrl" [(ngModel)]="nuevoMensaje.imageUrl" class="form-control" placeholder="https://picsum.photos/200">
+          <label class="form-label">Imagen</label>
+          <input type="file" accept="image/*" (change)="onImageSelected($event)" class="form-control">
+          <img *ngIf="nuevoMensaje.imageUrl" [src]="nuevoMensaje.imageUrl" style="width:80px; margin-top:8px; border-radius:8px;">
         </div>
 
         <button type="submit" class="btn btn-primary w-100">Guardar Mensaje</button>
