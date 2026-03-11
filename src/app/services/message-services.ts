@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Message } from '../modules/message';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -10,8 +9,12 @@ export class MessageServices {
   private apiUrl = 'http://localhost:8080/api/mensajes';
   private http = inject(HttpClient);
 
-  // ¡Esta es la función que Angular no encontraba!
   listarMensajes() {
-    return this.http.get<Message[]>(`${this.apiUrl}`);
+    return this.http.get<Message[]>(this.apiUrl);
+  }
+
+  // Agrega esta función para guardar
+  guardarMensaje(mensaje: Message) {
+    return this.http.post<Message>(this.apiUrl, mensaje);
   }
 }
