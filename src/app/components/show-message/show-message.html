@@ -1,1 +1,26 @@
-<p>show-message works!</p>
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Lista de Mensajes</h2>
+
+  <table class="table table-striped table-bordered text-center">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Imagen</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (m of messages; track m.id) {
+        <tr>
+          <td>{{ m.id }}</td>
+          <td>{{ m.name }}</td>
+          <td>{{ m.content }}</td>
+          <td>
+            <img [src]="m.imageUrl" alt="img" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
